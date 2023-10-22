@@ -1,14 +1,17 @@
 import React from "react";
 import ItemMovie from "./ItemMovie";
 
-const ListMovie = () => {
+const ListMovie = ({movies}) => {
+
+    const renderMovies = movies.map(movie =>{
+        return <li className="card" >
+            <ItemMovie movie={movie}/>
+        </li>
+    })
 
 return (
 <>
-<ul>
-    <ItemMovie />
-    <ItemMovie />
-</ul>
+<ul className="cards">{renderMovies}</ul>
 </>
 
 );

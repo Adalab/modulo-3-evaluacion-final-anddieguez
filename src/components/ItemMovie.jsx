@@ -1,23 +1,24 @@
 import React from "react";
 
 
-const ItemMovie = () => {
+const ItemMovie = ({movie}) => {
 
 return (
 <>
-<li className="card">
+
     <a href="#">
         <img className="card__image"
-        src=""
-        alt="Portada de pelicula"
-        title="Portada de pelicula"
+        src={movie.poster}
+        alt={movie.name}
+        title={movie.name}
         />
     </a>
-    <h4 className="card__title"></h4>
-    <p className="card__description"></p>
+    <h4 className="card__title">{`${movie.name} / ${movie.year}`}</h4>
+    <p className="card__description">{movie.line}</p>
+   
 
 
-</li>
+
 </>
 
 );

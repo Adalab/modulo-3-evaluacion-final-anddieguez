@@ -3,8 +3,8 @@ import ItemMovie from "./ItemMovie";
 
 const ListMovie = ({movies}) => {
 
-    const renderMovies = movies.map(movie =>{
-        return <li className="card" >
+    const renderMovies = movies.map((movie, index) =>{
+        return <li key={index} className="card" >
             <ItemMovie movie={movie}/>
         </li>
     })

@@ -16,6 +16,7 @@ import { useEffect } from "react";
 function App() {
   const [movies, setMovies] = useState ([]);
   const [nameFilter, setNameFilter] = useState ("");
+  const [yearFilter, setYearFilter] = useState ("");
 
 
   useEffect (()=>{
@@ -28,14 +29,31 @@ function App() {
     setNameFilter(value);
   };
 
-  const filterMovies = movies.filter(movie=>movie.name.toLowerCase().includes(nameFilter));
+  const handleChangeYear = (value) => {
+    setYearFilter(value);
+  };
+
+  const filterMovies = movies.filter(movie=>
+    movie.name.toLowerCase().includes(nameFilter)
+    ).filter(item =>{
+      if(yearFilter === ""){
+        return true;
+      } else {
+        return yearFilter === item.year;
+      }
+      
+    });
+
+    const years = movies.map(movie=>movie.year)
+
+    console.log(years)
 
 
   return (
   
   <>
   <main className="main">
-    <Filters nameFilter={nameFilter} handleChange={handleChange}/>
+    <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={years}/>
     <section className="section__list">
   <ListMovie movies = {filterMovies} />
   </section>

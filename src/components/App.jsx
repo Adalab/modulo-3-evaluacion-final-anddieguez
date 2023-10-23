@@ -75,13 +75,13 @@ function App() {
 
 const { pathname } = useLocation();
 
-const routeData = matchPath('/movie/:index', pathname);
+const routeData = matchPath('/movie/:id', pathname);
 //console.log(routeData);
-const movieId = routeData !==null ? routeData.params.index : null;
+const movieId = routeData !==null ? routeData.params.id : null;
 //console.log(movieId);
 //buscar una movie basada en un id
 
-const movieData= movies.find((movie)=>movie.id === parseInt(movieId));
+const movieData= movies.find((movie)=>movie.id === movieId);
 
 
   return (

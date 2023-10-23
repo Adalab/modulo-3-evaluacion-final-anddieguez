@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const getDataFromApi = () =>{
     return fetch("https://owen-wilson-wow-api.onrender.com/wows/random?results=50")
     .then((response) => response.json())
@@ -12,11 +14,11 @@ const getDataFromApi = () =>{
         director: item.director,
         audio: item.audio,
         poster: item.poster,
-        id: index,
+        id: uuidv4(),
      };
     
 
-     });
+     });//console.log(cleanData)
      return cleanData;
 });
 };

@@ -4,7 +4,7 @@ import getDataFromApi from "../servicies/api";
 import ListMovie from "./ListMovie";
 
 import Filters from "./Filters";
-
+import ls from "../servicies/localStorage";
 
 
 import { useState } from "react";
@@ -22,17 +22,27 @@ import MovieDetail from "./MovieDetail";
 
 
 function App() {
-  const [movies, setMovies] = useState ([]);
+  const [movies, setMovies] = useState (ls.get("movies", []));
   const [nameFilter, setNameFilter] = useState ("");
   const [yearFilter, setYearFilter] = useState ("");
 
 
   //Limpiar listado
+
   useEffect (()=>{
+    if(ls.get("movies",null)===null){
+      
+    
     getDataFromApi().then(cleanData =>{
-      setMovies(cleanData); 
+      setMovies(cleanData);
+      
+      ls.set("movies", cleanData)
+    
     })
+    }
+    
   }, []);
+
 
   const handleChange = (value) => {
     setNameFilter(value);

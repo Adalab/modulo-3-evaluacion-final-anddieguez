@@ -109,7 +109,7 @@ const movieData= movies.find((movie)=>movie.id === movieId);
         <>
       <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={getYears()}/>
     <section className="section__list">
-  <ListMovie movies = {filterMovies} />
+  <ListMovie movies = {filterMovies} nameFilter={nameFilter}/>
   </section>
   </>
   }

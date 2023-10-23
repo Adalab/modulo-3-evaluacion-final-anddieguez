@@ -19,6 +19,7 @@ function App() {
   const [yearFilter, setYearFilter] = useState ("");
 
 
+  //Limpiar listado
   useEffect (()=>{
     getDataFromApi().then(cleanData =>{
       setMovies(cleanData); 
@@ -33,27 +34,40 @@ function App() {
     setYearFilter(value);
   };
 
+
+  //Filtrado
   const filterMovies = movies.filter(movie=>
     movie.name.toLowerCase().includes(nameFilter)
-    ).filter(item =>{
+    ).filter((item) =>{
       if(yearFilter === ""){
         return true;
       } else {
-        return yearFilter === item.year;
+        return yearFilter.includes(item.year);
       }
       
     });
 
-    const years = movies.map(movie=>movie.year)
+
+    const years = movies.map(movie=>movie.year);
 
     console.log(years)
+
+    //Hacer que no se repitan los años en el desplegable
+    const getYears = () => {
+      const years = movies.map(movie=>movie.year);//array con los años
+      //estructura de datos SET --> de un listado, sol me quedo con los valores que son únicos
+       const uniquesYears = new Set(years);
+       const uniquesArray = [...uniquesYears];
+       return uniquesArray;
+    };
+
 
 
   return (
   
   <>
   <main className="main">
-    <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={years}/>
+    <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={getYears()}/>
     <section className="section__list">
   <ListMovie movies = {filterMovies} />
   </section>

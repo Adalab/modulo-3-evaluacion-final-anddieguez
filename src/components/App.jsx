@@ -1,17 +1,25 @@
-//imports dependencias, imagenes, componentes, estilos
-import reactLogo from "../images/react.svg";
-import viteLogo from "/vite.svg";
+
 import "../styles/App.scss";
 import getDataFromApi from "../servicies/api";
 import ListMovie from "./ListMovie";
+
 import Filters from "./Filters";
 
-// Fichero src/components/App.jsx
+
 
 import { useState } from "react";
 
 import { useEffect } from "react";
-//import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { useLocation, matchPath } from "react-router";
+import MovieDetail from "./MovieDetail";
+
+
+
+
+//import MovieDetail from "./MovieDetail";
+
+
 
 function App() {
   const [movies, setMovies] = useState ([]);
@@ -50,7 +58,7 @@ function App() {
 
     const years = movies.map(movie=>movie.year);
 
-    console.log(years)
+    //console.log(years)
 
     //Hacer que no se repitan los años en el desplegable
     const getYears = () => {
@@ -62,15 +70,48 @@ function App() {
     };
 
 
+//Buscar el usuario basado en el id de la ruta
+//1. ENCONTRAR EL ID
+
+const { pathname } = useLocation();
+
+const routeData = matchPath('/movie/:index', pathname);
+//console.log(routeData);
+const movieId = routeData !==null ? routeData.params.index : null;
+//console.log(movieId);
+//buscar una movie basada en un id
+
+const movieData= movies.find((movie)=>movie.id === parseInt(movieId));
+
 
   return (
   
   <>
+   <header className="Header">
+    <h1 className="header__title">Owen Wilson's "wow"</h1>
+  </header>
   <main className="main">
-    <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={getYears()}/>
+    <Routes>
+
+      <Route
+      path="/"
+      element={
+        <>
+      <Filters nameFilter={nameFilter} handleChange={handleChange} yearFilter={yearFilter} handleChangeYear={handleChangeYear} years={getYears()}/>
     <section className="section__list">
   <ListMovie movies = {filterMovies} />
   </section>
+  </>
+  }
+      />
+      <Route
+      path="/movie/:index"
+      element={<MovieDetail movie={movieData}/>}
+      />
+
+    </Routes>
+
+    
   </main>
   </>
   );

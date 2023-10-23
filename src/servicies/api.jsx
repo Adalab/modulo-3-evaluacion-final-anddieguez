@@ -4,7 +4,7 @@ const getDataFromApi = () =>{
     .then ((data) => {
       
       //console.log(movies)
-     const cleanData = data.map((item) =>{
+     const cleanData = data.map((item, index) =>{
       return {
         name: item.movie,
         year: item.year,
@@ -12,7 +12,7 @@ const getDataFromApi = () =>{
         director: item.director,
         audio: item.audio,
         poster: item.poster,
-        id: item.movie_duration,
+        id: index,
      };
     
 

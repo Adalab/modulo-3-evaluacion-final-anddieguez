@@ -6,7 +6,9 @@ const getDataFromApi = () =>{
     .then ((data) => {
       
       //console.log(movies)
-     const cleanData = data.map((item, index) =>{
+     const cleanData = data
+     .sort((a, b)=>{return a.movie > b.movie ? 1 : -1})
+     .map((item, index) =>{
       return {
         name: item.movie,
         year: item.year,

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ListMovie = ({ movies, nameFilter }) => {
   if (movies.length === 0) {
     return (
-      <li className="movie-list__notfound">
+      <li className="list__movie--notfound">
         <p>
           Ningún título coincide con "{nameFilter}". ¡Inténtalo de nuevo!
         </p>
@@ -13,8 +13,8 @@ const ListMovie = ({ movies, nameFilter }) => {
     );
   } else {
     const renderMovies = movies.map((movie) => (
-      <li key={movie.id} className="card">
-        <Link to={"/movie/" + movie.id}>
+      <li key={movie.id} className="list__movie--found">
+        <Link className="link" to={"/movie/" + movie.id}>
           <ItemMovie movie={movie} />
         </Link>
       </li>
@@ -22,7 +22,7 @@ const ListMovie = ({ movies, nameFilter }) => {
 
     return (
       <>
-        <ul className="cards">{renderMovies}</ul>
+        <ul className="list__movie">{renderMovies}</ul>
       </>
     );
   }

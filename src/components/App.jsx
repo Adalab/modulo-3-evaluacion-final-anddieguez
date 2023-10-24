@@ -97,7 +97,7 @@ const movieData= movies.find((movie)=>movie.id === movieId);
   return (
   
   <>
-   <header className="Header">
+   <header className="header">
     <h1 className="header__title">Owen Wilson's "wow"</h1>
   </header>
   <main className="main">

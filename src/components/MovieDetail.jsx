@@ -7,7 +7,7 @@ function MovieDetail ({movie}) {
     
     <article className="detail">
         <a href="#">
-        <img className="card__image"
+        <img className="card__image-click"
         src={movie.poster}
         alt={movie.name}
         title={movie.name}
@@ -15,14 +15,14 @@ function MovieDetail ({movie}) {
     </a>
 
     
-    <h4 className="card__title">{movie.name}</h4>
-    <p className="card__description">{movie.line}</p>
-    <p className="card__director">{movie.director}</p>
+    <h4 className="card__title-click">{movie.name}</h4>
+    <p className="card__description-click">{movie.line}</p>
+    <p className="card__director-click">{movie.director}</p>
 
-    <a className="card__audio" href={movie.audio} title="Ir al audio" target="_blank" rel="noreferrer"><i className="fa-solid fa-headphones"></i> Escuchar audio</a>
+    <a className="card__audio-click" href={movie.audio} title="Ir al audio" target="_blank" rel="noreferrer"><i className="fa-solid fa-headphones"></i> Escuchar audio</a>
 
     <div>
-    <Link  to="/">Volver</Link>
+    <Link to="/">Volver</Link>
     </div>
 </article>
         

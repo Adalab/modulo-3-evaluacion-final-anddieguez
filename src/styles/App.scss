@@ -1,8 +1,10 @@
 //estilos para componente
 
-//importa cada layout
-//@import '../styles/nombre-de-fichero.scss';
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .main{
     background-color: #212121;
 }
@@ -16,6 +18,7 @@
 .header__title{
     flex-direction: column;
     color: #d34e24;
+    margin-top: 20px;
     margin-left: 35px;
 }
 
@@ -53,12 +56,11 @@
     align-items: center;
     background-color: #f28123;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
     
     &:hover {
-        
         background-color: #d34e24;
-
-
 }}
 
 .list__movie--notfound{
@@ -72,8 +74,8 @@
 }
 
 .card__image{
-    width: 150px;
-    justify-content: center;
+    width: 200px;
+    margin-bottom: 15px;
 }
 
 .card__title{
@@ -102,6 +104,7 @@
 .card__image-click{
     margin-top: 40px;
     width: 200px;
+    margin-bottom: 15px;
 }
 
 .card__title-click .card__description-click .card__director-click{

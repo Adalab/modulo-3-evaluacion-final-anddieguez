@@ -12,7 +12,6 @@ const FilterName = ({nameFilter, handleChange}) => {
 return (
 <>
 <label className="form__label" htmlFor="search_name">
-    Nombre:
 <input
 className="form__label__input"
 type="text"

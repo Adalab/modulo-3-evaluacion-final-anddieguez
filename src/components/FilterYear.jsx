@@ -17,7 +17,6 @@ return (
 <>
 {""}
 <label className="form__label" htmlFor="search_year">
-    Year:
 <select
 className="form__input--year"
 name="search__year"

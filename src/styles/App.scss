@@ -53,6 +53,7 @@
     align-items: center;
     background-color: #f28123;
     padding: 20px;
+    
     &:hover {
         
         background-color: #d34e24;
@@ -71,8 +72,8 @@
 }
 
 .card__image{
-    width: 100px;
-    margin-left: 37px;
+    width: 150px;
+    justify-content: center;
 }
 
 .card__title{

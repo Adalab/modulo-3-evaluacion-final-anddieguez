@@ -19,7 +19,7 @@ function MovieDetail ({movie}) {
     <p className="card__description-click">{movie.line}</p>
     <p className="card__director-click">{movie.director}</p>
 
-    <a className="card__audio-click" href={movie.audio} title="Ir al audio" target="_blank" rel="noreferrer"><i className="fa-solid fa-headphones"></i> Escuchar audio</a>
+    <a className="card__audio-click" href={movie.audio} title="Ir al audio" target="_blank" rel="noreferrer"> Escuchar audio</a>
 
     <div>
     <Link to="/">Volver</Link>
